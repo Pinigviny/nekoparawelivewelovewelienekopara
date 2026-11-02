@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>НЕКОПАРА.RU — официальный кошачий портал России</title>
+  <meta name="description" content="Официальный русскоязычный портал Nekopara: персонажи, новости, товары и государственный некоконтроль.">
+  <style>
+    :root { --acid:#deff00; --pink:#ff00aa; --blue:#00eeff; --bruise:#430066; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; cursor:crosshair; color:#190018; font-family:"Comic Sans MS","Times New Roman",cursive; background-color:#be82ff; background-image:repeating-linear-gradient(37deg,rgba(255,255,0,.8) 0 8px,rgba(255,0,170,.55) 8px 16px,rgba(0,238,255,.7) 16px 24px); background-size:140px 140px; animation:bgpanic 1.7s linear infinite; overflow-x:hidden; }
+    body::before { content:"🐾"; position:fixed; inset:0; pointer-events:none; font-size:42px; line-height:76px; letter-spacing:80px; opacity:.12; z-index:-1; transform:rotate(-8deg) scale(1.3); }
+    a { color:#001eff; text-decoration:underline wavy red 3px; font-weight:bold; }
+    button { font:900 17px "Comic Sans MS",cursive; cursor:pointer; }
+    img { max-width:100%; }
+    .blink { animation:blink .55s steps(1) infinite; }
+    @keyframes blink { 50% { opacity:0; } }
+    @keyframes wobble { 0%,100%{transform:rotate(-2deg)} 50%{transform:rotate(2deg) scale(1.02)} }
+    @keyframes rainbow { to { filter:hue-rotate(360deg) saturate(2); } }
+    @keyframes marquee { to { transform:translateX(-100%); } }
+    @keyframes bgpanic { to { background-position:140px -140px; } }
+    @keyframes spinbad { to { transform:rotate(360deg) scale(.8); } }
+
+    .topline { position:sticky; top:0; z-index:20; overflow:hidden; white-space:nowrap; padding:7px 0; color:#fff; background:#050505; border-bottom:7px ridge #fff000; font-size:18px; }
+    .topline span { display:inline-block; min-width:100%; padding-left:100%; animation:marquee 14s linear infinite; }
+    .shell { width:min(1180px,96%); margin:13px auto 100px; border:11px ridge #8d8d8d; background:rgba(255,255,255,.72); box-shadow:18px 20px 0 #000; }
+    header { min-height:540px; position:relative; padding:18px; text-align:center; color:white; background:linear-gradient(90deg,#290038,#ff008c,#39286c,#ff5d00); border-bottom:12px dotted lime; }
+    .tiny { margin:0; color:#eaff00; font-size:13px; letter-spacing:3px; }
+    h1 { margin:5px 0 0; font-family:Impact,"Arial Black",sans-serif; font-size:clamp(56px,12vw,145px); line-height:.8; letter-spacing:-7px; color:#ffff00; -webkit-text-stroke:5px #e90000; text-shadow:8px 8px 0 #00d9ff,-9px -7px 0 #39004f; transform:skew(-8deg); }
+    .subtitle { display:inline-block; margin:14px; padding:6px 18px; color:#000; background:var(--acid); border:6px outset hotpink; font-size:clamp(18px,3vw,34px); animation:wobble .8s ease-in-out infinite; }
+    .hero-grid { display:grid; grid-template-columns:1fr minmax(270px,480px) 1fr; gap:12px; align-items:center; }
+    .hero-grid img { width:100%; border:12px groove #00ff3c; animation:rainbow 2s linear infinite; }
+    .side-sticker { padding:15px 7px; color:#111; background:#ffef00; border:5px dashed red; transform:rotate(-7deg); box-shadow:7px 8px 0 #111; font-size:22px; }
+    .side-sticker.right { transform:rotate(9deg); background:#00ffea; }
+    nav { display:flex; flex-wrap:wrap; justify-content:center; gap:4px; padding:7px; background:#aaa; border-block:5px outset white; }
+    nav a { padding:8px 13px; color:#000; background:#ddd; border:4px outset #fff; text-decoration:none; }
+    nav a:active { border-style:inset; }
+    main { padding:18px; background:rgba(255,245,190,.86); }
+    h2 { margin:38px -8px 20px; padding:10px; color:#fff; background:linear-gradient(90deg,blue 0 20%,red 20% 40%,green 40% 60%,purple 60% 80%,orange 80%); border:8px double yellow; font-size:clamp(28px,5vw,58px); line-height:1; text-align:center; text-transform:uppercase; text-shadow:4px 4px #000; }
+    .badges { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+    .badge { padding:8px; color:#fff; background:#000; border:4px dotted fuchsia; font-family:monospace; transform:rotate(-2deg); }
+    .duo { display:grid; grid-template-columns:1.1fr .9fr; gap:23px; align-items:center; }
+    .framed { border:13px ridge gold; background:#543; box-shadow:13px 13px 0 magenta; transform:rotate(-1deg); }
+    .verdict { padding:20px; background:#fff; border:8px dashed #111; font-size:22px; }
+    .stamp { display:block; margin:15px auto; width:max-content; padding:8px; color:red; border:8px double red; font:900 28px Impact,sans-serif; transform:rotate(-12deg); }
+    .quiz { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+    .quiz-card { position:relative; padding:9px; background:#00d5ff; border:12px groove #ff0; text-align:center; }
+    .quiz-card:nth-child(2) { background:#ff8ccd; transform:rotate(1.5deg); }
+    .quiz-card img { height:320px; width:100%; object-fit:cover; border:5px solid #000; }
+    .doom-button { margin:8px; padding:13px 20px; color:#fff; background:linear-gradient(#ff3800,#670000); border:6px outset #ffb18e; box-shadow:5px 5px #000; }
+    .doom-button:hover { transform:scale(1.1) rotate(-3deg); filter:contrast(2); }
+    .store { display:grid; grid-template-columns:minmax(260px,430px) 1fr; gap:26px; align-items:start; }
+    .store img { border-radius:50% 5% 50% 5%; border:14px dotted blue; transform:rotate(3deg); }
+    .price { font:900 52px Impact,sans-serif; color:red; text-shadow:3px 3px yellow; }
+    .fineprint { font-size:10px; line-height:.9; color:#555; }
+    .conference { position:relative; text-align:center; padding:15px; background:#07153e; color:white; border:12px ridge orange; }
+    .conference img { width:min(100%,900px); border:8px solid #ff4b00; }
+    .censor { position:absolute; left:50%; top:48%; transform:translate(-50%,-50%) rotate(-9deg); padding:13px; color:#fff; background:#000; border:7px solid red; font:900 clamp(18px,4vw,42px) Impact,sans-serif; }
+    .news-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:13px; }
+    .news { padding:13px; background:#fff; border:6px dotted blue; min-height:180px; }
+    .news:nth-child(2) { transform:translateY(25px) rotate(-2deg); background:#d8ff00; }
+    .news:nth-child(3) { transform:rotate(3deg); background:#ffb0d6; }
+    .guestbook { padding:20px; background:#003b0e; color:#4aff00; border:9px inset #aaa; font-family:"Courier New",monospace; }
+    .guestbook input,.guestbook textarea { width:100%; margin:5px 0 12px; padding:8px; color:#00ff31; background:#000; border:3px inset #888; font:16px monospace; }
+    .comment { padding:8px; border-bottom:1px dashed #4aff00; }
+    footer { padding:30px 15px; color:#fff; background:#000; text-align:center; border-top:9px dotted fuchsia; }
+    .counter { display:inline-block; padding:7px 12px; color:#ff2; background:#111; border:5px inset #bbb; font:26px "Courier New",monospace; }
+    .cookie { position:fixed; left:8px; bottom:8px; z-index:30; width:min(460px,calc(100% - 16px)); padding:13px; background:#ffd900; border:7px outset #fff; box-shadow:8px 8px #000; }
+    .cookie button { float:right; background:#ff4d00; color:#fff; }
+    .modal { position:fixed; inset:0; z-index:100; display:grid; place-items:center; padding:15px; background:rgba(0,0,0,.92); }
+    .modal-box { width:min(620px,100%); padding:22px; background:#c0c0c0; border:9px outset #fff; text-align:center; }
+    .modal-box h3 { margin:0; color:red; font:900 45px Impact,sans-serif; }
+    .modal-box button { min-width:150px; margin:8px; padding:10px; }
+    #noBtn { position:relative; }
+    .popup { position:fixed; inset:auto 4% 5%; z-index:80; display:none; padding:9px; background:#fff; border:9px ridge red; text-align:center; }
+    .popup img { max-height:60vh; }
+    .cat-trail { position:fixed; z-index:200; pointer-events:none; font-size:22px; animation:poof .9s forwards; }
+    .side-scream { position:fixed; z-index:18; top:42%; right:-150px; width:430px; padding:6px; color:#ff0; background:#f00; border:7px dashed #0ff; font:900 25px Impact,sans-serif; text-align:center; transform:rotate(90deg); pointer-events:none; }
+    .chaos-zone { position:relative; min-height:1030px; margin:30px -90px 70px; padding:20px; background:repeating-radial-gradient(circle at 25% 30%,#ff0 0 16px,#f0f 17px 34px,#00f 35px 52px); border:17px groove lime; overflow:visible; }
+    .chaos-zone h3 { position:relative; z-index:7; margin:0 auto; width:80%; padding:13px; color:#fff; background:#000; border:9px dotted red; font:900 clamp(26px,6vw,70px) Impact,sans-serif; text-align:center; text-shadow:5px 5px #f0f; transform:rotate(-3deg); }
+    .chaos-card { position:absolute; width:min(430px,62vw); padding:9px; color:#000; background:#fff; border:13px ridge orange; box-shadow:17px 19px 0 rgba(0,0,0,.85); }
+    .chaos-card img { display:block; width:100%; max-height:500px; object-fit:cover; border:6px solid #000; }
+    .chaos-card b { display:block; padding:7px; font-size:25px; background:#ff0; }
+    .c1 { left:-35px; top:150px; transform:rotate(-9deg); z-index:3; }
+    .c2 { right:-55px; top:205px; transform:rotate(12deg); z-index:4; }
+    .c3 { left:25%; top:600px; transform:rotate(-4deg); z-index:5; }
+    .c4 { right:-120px; top:670px; width:350px; transform:rotate(19deg); z-index:6; }
+    .orbit { position:absolute; top:490px; left:-105px; z-index:10; width:250px; height:250px; display:grid; place-items:center; color:#fff; background:#170038; border:15px dotted #0f0; border-radius:50%; font:900 31px Impact,sans-serif; text-align:center; animation:spinbad 2.2s linear infinite; }
+    .fuckoff { position:fixed; inset:0; z-index:300; display:none; place-items:center; color:#ff0; background:red; font:900 clamp(45px,12vw,150px) Impact,sans-serif; text-align:center; text-shadow:10px 10px #000; animation:rainbow .25s linear infinite; }
+    .fuckoff.show { display:grid; }
+    @keyframes poof { to { transform:translateY(-60px) rotate(180deg) scale(2); opacity:0; } }
+    @media (max-width:760px) { .hero-grid,.duo,.store,.quiz,.news-grid { grid-template-columns:1fr; } .hero-grid .side-sticker { display:none; } h1 { -webkit-text-stroke:2px red; letter-spacing:-2px; } .shell { width:100%; margin-top:0; border-width:5px; box-shadow:none; } main { padding:9px; } .quiz-card img { height:auto; } .news:nth-child(n) { transform:none; } .chaos-zone { margin-inline:-35px; min-height:1720px; } .chaos-card { width:80vw; } .c1{left:-10px}.c2{right:-15px;top:510px}.c3{left:5px;top:910px}.c4{right:-35px;top:1320px}.orbit{top:820px;left:-70px;width:160px;height:160px;font-size:20px}.side-scream{right:-190px} }
+    @media (prefers-reduced-motion:reduce) { * { animation-duration:.01ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; } }
+  </style>
+</head>
+<body id="top">
+  <div class="modal" id="ageGate">
+    <div class="modal-box">
+      <h3>⚠ НЕКОПАРА 18+ ⚠</h3>
+      <p><b>Вам уже исполнилось 18 кошачьих лет?</b><br>Внутри — лицензированные кошкодевочки, кондитерские изделия и материалы повышенной мяукательной мощности.</p>
+      <button onclick="enterSite()">ДА, Я БЕЗНАДЁЖЕН</button>
+      <button id="noBtn" aria-label="Нет, я нормальный">НЕТ, Я НОРМАЛЬНЫЙ</button>
+    </div>
+  </div>
+  <div class="fuckoff" id="fuckoff">ИДИ НАХУЙ<br><small style="font-size:.28em">ТЫ УЖЕ ВЫБРАЛ НЕКОПАРУ</small></div>
+
+  <div class="topline"><span>🔥 СРОЧНО: ШОКОЛАД НЕ ШОКОЛАДКА • ВАНИЛЛА НЕ ВАНИЛИН • КОКОНАТ СНОВА ПОРВАЛА ЛИФЧИК • АЗУКИ ОБЪЯВИЛА ВОЙНУ ТАБУРЕТКЕ • МЭЙПЛ ТРЕБУЕТ СОЛЬНЫЙ АЛЬБОМ 🔥</span></div>
+  <div class="side-scream">ОФИЦИАЛЬНО ОДОБРЕНО 67 КОТАМИ И ОДНИМ ХУЕМ</div>
+  <div class="shell">
+    <header>
+      <p class="tiny">★ ОФИЦИАЛЬНЫЙ РУССКОЯЗЫЧНЫЙ НЕКОПАРА-ПОРТАЛ ФЕДЕРАЛЬНОГО ЗНАЧЕНИЯ ★</p>
+      <h1>NEKO<br>ПАРА</h1>
+      <div class="subtitle">кошкодевочки, кексы и цифровая деградация</div>
+      <div class="hero-grid">
+        <div class="side-sticker"><b>100% НЕКО</b><br>0% собак<br>🐈🐈🐈</div>
+        <img src="assets/ura.png" alt="Некодевочка празднует появление котеца">
+        <div class="side-sticker right"><b>ОДОБРЕНО</b><br>районным<br>некологом</div>
+      </div>
+    </header>
+
+    <nav aria-label="Главная навигация">
+      <a href="#gos">ГОСНЕКОКОНТРОЛЬ</a><a href="#test">ТЕСТ НА ДНИЩЕ</a><a href="#shop">МАГАЗИН НИЧЕГО</a><a href="#science">НАУКА?</a><a href="#guest">ГОСТЕВАЯ</a>
+    </nav>
+
+    <main>
+      <div class="badges"><span class="badge">CHOСOLA APPROVED</span><span class="badge blink">● МЯУ В ПРЯМОМ ЭФИРЕ</span><span class="badge">VANILLA INSIDE</span><button onclick="badTheme()">РЕЖИМ БЕШЕНОЙ АЗУКИ</button></div>
+
+      <section id="gos">
+        <h2>Государственный некоконтроль</h2>
+        <div class="duo">
+          <img class="framed" src="assets/kremlin.png" alt="Человек за рабочим столом изучает Nekopara на мониторе">
+          <div class="verdict">
+            <b>ЗАКЛЮЧЕНИЕ КОМИССИИ №NЯ-228</b>
+            <p>После семичасового заседания, двух чайников и одного неловкого мяу установлено: Nekopara повышает ВВП — <i>валовой выпуск пирожных</i> — на 67%.</p>
+            <span class="stamp">ПРОВЕРЕНО КОТОМ</span>
+            <p><small>* Постановлением №67 каждой семье положены две некодевочки, один торт и хуй без масла.</small></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="test">
+        <h2>Выбери свою судьбу, кожаный</h2>
+        <div class="quiz">
+          <article class="quiz-card">
+            <img src="assets/rusifikator.png" alt="Постер полного русификатора Nekopara">
+            <h3>ПУТЬ РУСИФИКАТОРА</h3>
+            <p>Скачай «полный русификатор_final_v7_точно.exe» с форума без HTTPS и подари майнеру новую квартиру.</p>
+            <button class="doom-button" onclick="diagnose('rus')">РУСИФИЦИРОВАТЬ МОЗГ</button>
+          </article>
+          <article class="quiz-card">
+            <img src="assets/elden-ring.png" alt="Пост о случайной покупке Nekopara вместо Elden Ring">
+            <h3>ПУТЬ СЛУЧАЙНОСТИ</h3>
+            <p>Шёл за Elden Ring, купил Nekopara. Боссов меньше, чувство поражения абсолютно то же.</p>
+            <button class="doom-button" onclick="diagnose('elden')">ПРИНЯТЬ ПОРАЖЕНИЕ</button>
+          </article>
+        </div>
+        <p id="diagnosis" style="padding:18px;background:#000;color:#0f0;font:20px monospace;text-align:center">ДИАГНОЗ: ещё не поставлен. Врач пока плачет.</p>
+      </section>
+
+      <section id="shop">
+        <h2>Магазин крайне нужных вещей</h2>
+        <div class="store">
+          <img src="assets/bandai.png" alt="Фигурка персонажа Nekopara перед камерой">
+          <div>
+            <h3 style="font-size:38px;margin:0">ФИГУРКА «ПАПА, ЭТО КОЛЛЕКЦИОННОЕ»</h3>
+            <p>Премиальный пылесборник из вещества, которое маркетолог назвал «ABS-пластик», чтобы ценник не выглядел как уголовное преступление.</p>
+            <div class="price">99 999 ₽ <small style="font-size:17px">+ почка курьеру</small></div>
+            <button class="doom-button" onclick="buyNothing()">КУПИТЬ НИЧЕГО</button>
+            <p class="fineprint">Нажимая кнопку, вы соглашаетесь передать Кокос всё содержимое холодильника. Товар не добавится в корзину: Шоколад уже утащила корзину, Ванилла заполнила акт, бухгалтер охуел и ушёл. Кошка продаётся отдельно. Кошка отказывается.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="science">
+        <h2>Всероссийский институт некологии</h2>
+        <div class="conference">
+          <img src="assets/pedofila.png" alt="Мем с персонажем и крупной провокационной надписью">
+          <div class="censor blink">ЗАГОЛОВОК ПРОШЁЛ<br>ЭКСПЕРТИЗУ ДЯДИ ВАСИ</div>
+          <p>Доклад: «Как один неудачный поисковый запрос превращает историю браузера в место преступления». Рецензент — кот Барсик, h-index: 9 жизней.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Энциклопедия великого Некора</h2>
+        <div class="chaos-zone">
+          <h3>ВСЁ, ЧТО НАДО ЗНАТЬ О NEKOPARA<br><span class="blink">И НЕМНОГО ТОГО, ЧЕГО НЕ НАДО</span></h3>
+          <article class="chaos-card c1">
+            <img src="assets/six-keys.png" alt="Мем про шесть ключиков и два замочка с Шоколад и Ваниллой">
+            <b>МУЛЬТИПЛЕЕР НА 8 РЫЛ</b>
+            <p>Шесть ключиков, два замочка и ни одного ёбаного человека, который прочитал инструкцию. Кооператив года.</p>
+          </article>
+          <article class="chaos-card c2">
+            <img src="assets/why-live.png" alt="Мем с Шоколад и Ваниллой, отвечающий на вопрос зачем жить">
+            <b>ФИЛОСОФИЯ NEKOPARA</b>
+            <p>Зачем жить? Чтобы погладить Шоколад, выдать Ванилле мороженое и снова задать этот тупой вопрос завтра.</p>
+          </article>
+          <article class="chaos-card c3">
+            <img src="assets/coconut-crisis.png" alt="Кокос жалуется на очередную проблему с одеждой">
+            <b>СРОЧНО: КОКОНАТ В БЕДЕ</b>
+            <p>Лифчик опять не вывез сюжетную нагрузку. МЧС просит не приближаться: радиус поражения пуговицей — 67 метров.</p>
+          </article>
+          <article class="chaos-card c4">
+            <img src="assets/fish-figure.png" alt="Акриловая фигурка странной антропоморфной рыбы">
+            <b>НОВАЯ ГЕРОИНЯ: СКУМБРИЯ</b>
+            <p>DLC «NekoPara: какого хуя это рыба» уже в продаже. Мяукает под водой, жрёт корм и пугает Коконат.</p>
+          </article>
+          <div class="orbit">МЯУ<br>БЛЯТЬ<br>МЯУ</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Новости, которые никто не просил</h2>
+        <div class="news-grid">
+          <article class="news"><b>СЕГОДНЯ, 04:22</b><h3>Милота обнаружена в коробке</h3><p>Очевидцы утверждают, что остальные варианты развития событий были быстро оптимизированы.</p><button onclick="showPopup()">ПОКАЗАТЬ УЛИКУ</button></article>
+          <article class="news"><b>ВЧЕРА, НО ЭТО НЕ ТОЧНО</b><h3>Ванилла подорожала</h3><p>Экономисты советуют переходить на Шоколад. Кондитеры в ярости. Анимешники запутались.</p></article>
+          <article class="news"><b>ПОСЛЕЗАВТРА</b><h3>Nekopara 12 анонсирована</h3><p>Теперь с боевым пропуском, налоговой декларацией и настоящим кошачьим лотком в deluxe-издании.</p></article>
+        </div>
+      </section>
+
+      <section id="guest">
+        <h2>Гостевая книга из 2007-го</h2>
+        <div class="guestbook">
+          <div class="comment">[12:01] <b>xXx_NeKoDeD_228_xXx:</b> шоколад имба где скачать её на nokia</div>
+          <div class="comment">[12:03] <b>admin:</b> бан</div>
+          <div class="comment">[13:37] <b>Мама_админа:</b> убери это немедленно</div>
+          <label>Ваш погонялово: <input id="nick" value="АнонимныйКот_67"></label>
+          <label>Ваш крик в пустоту: <textarea id="msg">мяу</textarea></label>
+          <button onclick="postComment()">ОТПРАВИТЬ В НИКУДА</button>
+          <div id="comments"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p class="blink">⚠ ВНИМАНИЕ: ВЫ ДОСКРОЛЛИЛИ ДО КОНЦА. СПАСАТЬ ВАС УЖЕ ПОЗДНО. ⚠</p>
+      <p>Некофил № <span class="counter" id="counter">00000067</span></p>
+      <p>© 1998–2099 NEKO WORKs, ООО «КОТЕЦ И СЫНОВЬЯ» · Шоколад, Ванилла, Коконат, Азуки, Мэйпл и Синнамон ждут ваши налоги</p>
+      <p><a href="#top">НАВЕРХ, ГДЕ БЫЛО НЕ ЛУЧШЕ</a></p>
+    </footer>
+  </div>
+
+  <div class="cookie" id="cookie"><b>🍪 МЫ ИСПОЛЬЗУЕМ ПЕЧЕНЬКИ</b><br>Но только чтобы макать в чай. Слежку ведёт кот, и ему лень.<button onclick="this.parentElement.remove()">ЛАДНО, БЛИН</button></div>
+  <div class="popup" id="popup"><button onclick="this.parentElement.style.display='none'">X ЗАКРЫТЬ ЭТО</button><br><img src="assets/utopili.png" alt="Переписка о милоте и судьбе остальных"><div><b>МИЛОТА ПОДТВЕРЖДЕНА. ОСТАЛЬНЫЕ ДАННЫЕ НЕ ВСПЛЫЛИ.</b></div></div>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    let noAttempts = 0;
+    function rejectNormality(event){
+      if(event){ event.preventDefault(); event.stopPropagation(); }
+      noAttempts++;
+      noBtn.style.position='fixed';
+      noBtn.style.zIndex='500';
+      noBtn.style.left=(10+Math.random()*70)+'vw';
+      noBtn.style.top=(10+Math.random()*70)+'vh';
+      noBtn.style.transform=`rotate(${Math.random()*720-360}deg) scale(${Math.max(.25,1-noAttempts*.16)})`;
+      if(noAttempts>=4){
+        noBtn.style.display='none';
+        const f=document.getElementById('fuckoff');
+        f.classList.add('show');
+        beep(55,.8);
+        setTimeout(()=>f.classList.remove('show'),1700);
+      }
+    }
+    noBtn.addEventListener('pointerenter', rejectNormality);
+    noBtn.addEventListener('pointerdown', rejectNormality);
+    noBtn.addEventListener('focus', rejectNormality);
+    noBtn.addEventListener('click', rejectNormality);
+    function enterSite(){ document.getElementById('ageGate').remove(); beep(260,.08); setTimeout(()=>beep(390,.1),90); }
+    function beep(freq,time){ try { const a=new (AudioContext||webkitAudioContext)(),o=a.createOscillator(),g=a.createGain(); o.frequency.value=freq;o.type='square';g.gain.value=.05;o.connect(g);g.connect(a.destination);o.start();o.stop(a.currentTime+time); } catch(e){} }
+    function diagnose(type){ const out=document.getElementById('diagnosis'); out.textContent=type==='rus'?'ДИАГНОЗ: ТОРРЕНТ-АРХЕОЛОГИЯ III СТЕПЕНИ. ЛЕЧЕНИЕ: удалить папку «Загрузки».':'ДИАГНОЗ: ТАКТИЧЕСКОЕ МЯУКАНЬЕ. БОСС ПОВЕРЖЕН, САМОУВАЖЕНИЕ ТОЖЕ.'; beep(type==='rus'?110:74,.35); }
+    function buyNothing(){ alert('ОШИБКА 67: КОКОНАТ СЪЕЛА СКЛАД. Деньги не списаны, но Азуки уже матерится.'); }
+    function showPopup(){ document.getElementById('popup').style.display='block'; beep(180,.25); }
+    function postComment(){ const n=document.getElementById('nick').value||'Безымянный'; const m=document.getElementById('msg').value||'...'; const div=document.createElement('div'); div.className='comment'; div.textContent='[только что] '+n+': '+m+' (сообщение уже пожалело)'; document.getElementById('comments').prepend(div); document.getElementById('msg').value=''; }
+    function badTheme(){ document.documentElement.style.setProperty('--acid','#ff00ff'); document.body.style.filter='contrast(1.7) saturate(3.4) hue-rotate(23deg)'; document.body.style.fontFamily='Papyrus, fantasy'; document.querySelectorAll('section').forEach((el,i)=>el.style.transform=`rotate(${i%2?2:-2}deg) translateX(${i%3?18:-34}px)`); alert('АЗУКИ В ЯРОСТИ. ВСЕ ПИРОЖНЫЕ ОБЪЯВЛЕНЫ ВРАГАМИ НАРОДА.'); }
+    let last=0; document.addEventListener('pointermove',e=>{ if(Date.now()-last<90)return;last=Date.now(); const s=document.createElement('span');s.className='cat-trail';s.textContent=['🐱','🐾','💩','✨'][Math.floor(Math.random()*4)];s.style.left=e.clientX+'px';s.style.top=e.clientY+'px';document.body.appendChild(s);setTimeout(()=>s.remove(),900); });
+    document.getElementById('counter').textContent=String(67+Math.floor(Math.random()*9000)).padStart(8,'0');
+  </script>
+</body>
+</html>
